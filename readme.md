@@ -1,7 +1,7 @@
 # Estudo VUE.js
 
 
-<h1> Aula 01 </h1>
+<h3 align="center"> Aula 01 </h3>
 
 É Demonstrado um pouco de como funciona a sintaxe do Vue
 
