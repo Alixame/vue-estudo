@@ -1,7 +1,7 @@
 # Estudo VUE.js
 
 
-# Aula 01
+<h1> Aula 01 <h1>
 
 É Demonstrado um pouco de como funciona a sintaxe do Vue
 
