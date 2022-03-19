@@ -15,13 +15,7 @@
 
 Está sintaxe deve ser definida dentro do script js e incorporada no seu site
 
-    options = {
-        el: "", // Definindo o Elemento Principal que Sera Trabalhado 
-        data: {}, // Definindo Variaveis
-        methods: {} // Definindo Funções (metodos)
-    }
-
-    const vn = new Vue(options) <- OBS: Geralmente o elemento, variaveis, e metodos são declarados na propria instancia da classe, nesse exemplo estamos armazenando os dados numa variavel para melhor entendimento.
+<hr>
 
 Para definir o elemento principal que será trabalhado basta seguir a sintaxe:
 
