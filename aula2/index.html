@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Aula 2</title>
+</head>
+<body>
+
+    <div id="app">
+        Numero 1 : {{ num1 }} <br><br>
+        Numero 2 : {{ num2 }} <br><br>
+
+        Soma: {{ somar() }} <br><br>
+        Subtração: {{ subtrair() }} <br><br>
+        Multiplicação: {{ multiplicar() }} <br><br>
+        Divisão: {{ dividir() }} <br><br>
+    </div>
+    
+
+    <script>
+
+        // Aula 02 - Metodos
+        options = {
+            el: "#app", // # -> id // . -> class
+            data: {
+                num1: 3,
+                num2: 3,
+            },
+            methods: {
+                somar: function somar() { // declarando função - convencional
+                    return this.num1 + this.num2;
+                },
+                subtrair: function() { // declarando função - anonima
+                    return this.num1 - this.num2;
+                },
+                multiplicar: () => { // declarando função - Arrow function
+                    return this.num1 * this.num2;
+                },
+                dividir() { //  declarando função - enxuta
+                    return this.num1 / this.num2;
+                }
+            }
+        }
+
+        const vn = new Vue(options)
+
+    </script>
+
+</body>
+</html>

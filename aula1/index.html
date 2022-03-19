@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Aula 01</title>
+</head>
+<body>
+
+    <div id="app">
+
+
+        Variavel String: {{ mensagem }} <br><br>
+
+        <hr>
+
+        Variavel Numerica: {{ valorTotal }} <br><br>
+
+        <hr>
+
+        Array: {{ hobbies }} <br><br>
+
+        Array indice 0: {{ hobbies[0] }} <br><br>
+        Array indice 1: {{ hobbies[1] }} <br><br>
+        Array indice 2: {{ hobbies[2] }} <br><br>
+        Array indice 3: {{ hobbies[3] }} <br><br>
+
+        <hr>
+
+        Obj Completo: {{ perfil }} <br><br>
+
+        Obj nome: {{ perfil.nome }} <br><br>
+        Obj email: {{ perfil.email }} <br><br>
+        Obj idade: {{ perfil.idade }} <br><br>
+        Obj cursos: {{ perfil.cursos }} <br><br>
+        Obj curso 1 nome: {{ perfil.cursos[0].nome }} <br><br>
+        Obj curso 1 carga horaria: {{ perfil.cursos[0].cargaHoraria }} <br><br>
+        Obj curso 2 nome: {{ perfil.cursos[1].nome }} <br><br>
+        Obj curso 2 carga horaria: {{ perfil.cursos[1].cargaHoraria }} <br><br>
+        Obj logado: {{ perfil.logado }} <br><br>
+
+    </div>
+    
+
+    <script>
+        // Aula 01 - Variaveis
+        options = {
+            el: "#app", // # -> id // . -> class
+            data: {
+                mensagem: "Primeiro template com Vue", // String
+                valorTotal: 149.99, // Valor Numerico
+                hobbies: [
+                    'Programar',
+                    'Ler',
+                    'Jogar',
+                    123
+                ], // Array
+                perfil: { // objeto
+                    nome: "Lucas Alixame",
+                    email: "lucas@gmail.com",
+                    idade: 19,
+                    cursos: [
+                        { nome: "PHP", cargaHoraria: "10 horas"},
+                        { nome: "Banco de Dados Relaconais", cargaHoraria: "20 horas"}
+                    ],
+                    logado: true
+                }
+            }
+        }
+
+        const vn = new Vue(options)
+
+    </script>
+
+</body>
+</html>
