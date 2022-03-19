@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Aula 7</title>
+
+    <style>
+        .borda {
+            border: 1px solid black;
+        }
+
+        .div-pricipal {
+            width: 200px;
+            height: 200px;
+        }
+
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .branca {
+            color: black;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .azul {
+            color: white;
+            background-color: rgb(73, 73, 165);
+        }
+
+        .verde {
+            color: white;
+            background-color: rgb(73, 165, 96);
+        }
+        
+        .vermelha {
+            color: white;
+            background-color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <input type="text" id="inputText">
+        
+        <br>
+        
+        <select id="opcoes">
+            <option value="1">Opção 1</option>
+            <option value="2">Opção 2</option>
+            <option value="3">Opção 3</option>
+        </select>
+        
+        <br>
+
+        <p id="paragrafo" style="color: green">Paragrafo</p>
+        <div id="bloco">Conteudo interno da div</div>
+        
+        <br>
+
+        <button @click="selecionarElementofilho()">Botão</button>
+
+    </div>
+
+    <script>
+
+        // Aula 07 - Pegando elementros filhos do elemento principal
+        options = {
+            el: "#app", // # -> id // . -> class
+            data: {
+               
+            },
+            methods: {
+                selecionarElementofilho() {
+                    console.log(inputText)
+                    console.log(inputText.value)
+                    console.log(opcoes)
+                    console.log(opcoes.value)
+                    console.log(paragrafo)
+                    console.log(paragrafo.style)
+                    console.log(bloco.innerHTML)
+                }
+            }
+        }
+
+        const vn = new Vue(options)
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Aula 4</title>
+</head>
+<body>
+
+    <div id="app">
+        <!-- UTILIZANDO DIRETIVA V-ON -->
+        <input type="text" v-on:keyup="imprimirTexto('Exemplo enviando parametro')">
+        <button v-on:click="mensagemAlert()">texto</button>
+
+        <!-- UTILIZANDO DIRETIVA V-ON ENXUTA -->
+        <input type="text" @keyup="imprimirTexto()">
+        <button @click="mensagemAlert($event)">texto</button>
+    </div>
+
+    
+
+    <script>
+
+        // Aula 04 - V-ON
+        options = {
+            el: "#app", // # -> id // . -> class
+            data: {},
+            methods: {
+                imprimirTexto(t) {
+                    console.log(t)
+                },
+                mensagemAlert(e){
+                    console.log(e)
+                }
+            }
+        }
+
+        const vn = new Vue(options)
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Aula 6</title>
+</head>
+<body>
+
+    <div id="app" class="center">
+
+        <a href="https://ld2v.com.br" target="_blank" @click.prevent="previniComportamentoPadrao()">link</a>
+        Mensagem: {{ msg }}
+
+        <hr>
+
+        <button @click="executarNormal()">Botão Normal</button>
+        Cliques: {{ cliquesNomal }} <br>
+
+        <button @click.once="executarUmaVez()">Botão Uma Vez</button>
+        Cliques: {{ cliquesUmaVez }}
+
+        <form @submit.prevent.once="prevenirUmaVez()">
+            <button @click.once="executarUmaVez()"> Botão Uma Vez do formulario</button>
+        </form>
+        <p>Formulario : {{ formulario }}</p>
+
+        <hr>
+
+        <input type="text" @keyup="capturandoTeclas($event)"><br>
+
+        Ultima Tecla Pressionada:{{ tecla }} <br>
+        Conteudo: {{ teclas }}
+
+    </div>
+
+    
+
+    <script>
+
+        // Aula 06 - Modificadores da Diretiva V-ON
+        options = {
+            el: "#app", // # -> id // . -> class
+            data: {
+               msg: "",
+               cliquesNomal: 0,
+               cliquesUmaVez: 0,
+               formulario: "",
+               tecla: "",
+               teclas: ""
+            },
+            methods: {
+                previniComportamentoPadrao() {
+                    this.msg = "Comportamento Padrão ativado"
+                },
+                executarNormal(){
+                    this.cliquesNomal++
+                },
+                executarUmaVez() {
+                    this.cliquesUmaVez++
+                },
+                prevenirUmaVez() {
+                    this.formulario = "Previnindo o submit do formulario"
+                },
+                capturandoTeclas(e) {
+                    this.tecla = e.key
+                    this.teclas += e.key
+                }
+            }
+        }
+
+        const vn = new Vue(options)
+
+    </script>
+
+</body>
+</html>
