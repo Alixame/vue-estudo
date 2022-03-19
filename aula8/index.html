@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Aula 8</title>
+
+    <style>
+        .borda {
+            border: 1px solid black;
+        }
+
+        .div-pricipal {
+            width: 200px;
+            height: 200px;
+        }
+
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .branca {
+            color: black;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .azul {
+            color: white;
+            background-color: rgb(73, 73, 165);
+        }
+
+        .verde {
+            color: white;
+            background-color: rgb(73, 165, 96);
+        }
+        
+        .vermelha {
+            color: white;
+            background-color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+
+        <!-- EQUIVALENTE A FUNÇÃO toggle() -->
+        <button @click="exibirSaldo = !exibirSaldo">
+            <span v-if="!exibirSaldo">Exibir Saldo</span>
+            <span v-if="exibirSaldo">Ocultar Saldo</span>
+        </button>
+
+        <!-- v-if -->
+        <p v-if="exibirSaldo">Saldo: R$ {{ saldo }}</p>
+
+        <br>
+        <br>
+        
+        <!-- v-if e v-else -->
+        Idade: <input type="text" id="inputIdade" @blur="setIdade()">
+        <p v-if="idade < 18">Menor de Idade</p>
+        <p v-else>Maior de Idade</p>
+
+        <!-- v-if , v-else-if e v-else -->
+        Notas: <input type="text" id="inputNota" @blur="setNota()">
+        <p v-if="nota == ''">Digite a nota do aluno</p>
+        <p v-else-if="nota >= 7 && nota <= 10">Aluno Aprovado</p>
+        <p v-else-if="nota >= 5 && nota < 7">Aluno em Recuperação</p>
+        <p v-else-if="nota >= 0 && nota < 5">Aluno Reprovado</p>
+        <p v-else>A nota informada é invalida</p>
+
+
+    </div>
+
+    <script>
+
+        // Aula 08 - v-if , v-esle, v-else-if (RENDERIZA ELEMENTOS HTML DE FORMA CONDICIONAL)
+        options = {
+            el: "#app", // # -> id // . -> class
+            data: {
+                saldo: 2500.62,
+                exibirSaldo: false,
+                idade: 0,
+                nota: 0,
+            },
+            methods: {
+                setIdade() {
+                    this.idade = inputIdade.value
+                },
+                setNota() {
+                    this.nota = inputNota.value
+                }
+            }
+        }
+
+        const vn = new Vue(options)
+
+    </script>
+
+</body>
+</html>
