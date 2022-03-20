@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Aula 9</title>
+
+    <style>
+        .borda {
+            border: 1px solid black;
+        }
+
+        .div-pricipal {
+            width: 200px;
+            height: 200px;
+        }
+
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .branca {
+            color: black;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .azul {
+            color: white;
+            background-color: rgb(73, 73, 165);
+        }
+
+        .verde {
+            color: white;
+            background-color: rgb(73, 165, 96);
+        }
+        
+        .vermelha {
+            color: white;
+            background-color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <p @mouseover="exibirTextoAjuda = true" @mouseout="exibirTextoAjuda = false">Exemplo tooltip</p>
+        <div v-show="exibirTextoAjuda">
+            <h3>Titulo Texto Ajuda</h3>
+            <p>Conteudo Texto Ajuda</p>
+        </div>
+
+    </div>
+
+    <script>
+
+        // Aula 09 - v-show (EXIBE ELEMENTOS HTML DE FORMA CONDICIONAL)
+        // OBS: está diretiva é semelhante ao v-if e seus derivados, a diferença é que a diretiva v-if renderiza o conteudo html
+        // caso possua 3 validações, e so 1 for verdadeira apenas ela será renderizada no codigo final,
+        // ja a diretiva v-show renderizará todas no codigo mas apenas a que for verdadeira estará visivel
+        options = {
+            el: "#app", // # -> id // . -> class
+            data: {
+                exibirTextoAjuda: false
+            },
+            methods: {
+                
+            }
+        }
+
+        const vn = new Vue(options)
+
+    </script>
+
+</body>
+</html>

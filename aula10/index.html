@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Aula 10</title>
+
+    <style>
+        .borda {
+            border: 1px solid black;
+        }
+
+        .div-pricipal {
+            width: 200px;
+            height: 200px;
+        }
+
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .branca {
+            color: black;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .azul {
+            color: white;
+            background-color: rgb(73, 73, 165);
+        }
+
+        .verde {
+            color: white;
+            background-color: rgb(73, 165, 96);
+        }
+        
+        .vermelha {
+            color: white;
+            background-color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        innerHTML <!-- Essa diretiva injeta elementos html, sobrepondo tudo que está pre definido  no conteudo do elemento -->
+        <div v-html="elementoHTML"></div>
+
+        <br><br>
+
+        innerTEXT <!-- Essa diretiva converte tudo que recebe e injeta nos elementos html, sobrepondo tudo que está pre definido no conteudo do elemento -->
+        <div v-text="elementoHTML"></div>
+    </div>
+
+
+
+    <script>
+
+        // Aula 10 - v-html e v-text
+        options = {
+            el: "#app", // # -> id // . -> class
+            data: {
+                elementoHTML: '<p><b>Site</b></p><a href="ld2v.com.br">LD2V</a>'
+            },
+            methods: {
+                
+            }
+        }
+
+        const vn = new Vue(options)
+
+    </script>
+
+</body>
+</html>

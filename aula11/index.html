@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Aula 11</title>
+
+    <style>
+        .borda {
+            border: 1px solid black;
+        }
+
+        .div-pricipal {
+            width: 200px;
+            height: 200px;
+        }
+
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .branca {
+            color: black;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .azul {
+            color: white;
+            background-color: rgb(73, 73, 165);
+        }
+
+        .verde {
+            color: white;
+            background-color: rgb(73, 165, 96);
+        }
+        
+        .vermelha {
+            color: white;
+            background-color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        sem v-once
+        <p>Saldo inicial {{ saldo }}</p>
+        <br><br>
+        com v-once
+        <p v-once>Saldo inicial {{ saldo }}</p>
+        <p>Saldo atualizado {{ saldo }}</p>
+        <input type="number" id="valor">
+        <button @click="creditar()">Creditar</button>
+        <button @click="debitar()">Debitar</button>
+    </div>
+
+
+
+    <script>
+
+        // Aula 11 - v-once
+        options = {
+            el: "#app", // # -> id // . -> class
+            data: {
+                saldo: 1100
+            },
+            methods: {
+                creditar () {
+                    this.saldo += parseFloat(valor.value)
+                },
+                debitar () {
+                    this.saldo -= parseFloat(valor.value)
+                }
+            }
+        }
+
+        const vn = new Vue(options)
+
+    </script>
+
+</body>
+</html>
