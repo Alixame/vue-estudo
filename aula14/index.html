@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Aula 14</title>
+
+    <style>
+        .borda {
+            border: 1px solid black;
+        }
+
+        .div-pricipal {
+            width: 200px;
+            height: 200px;
+        }
+
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .branca {
+            color: black;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .azul {
+            color: white;
+            background-color: rgb(73, 73, 165);
+        }
+
+        .verde {
+            color: white;
+            background-color: rgb(73, 165, 96);
+        }
+        
+        .vermelha {
+            color: white;
+            background-color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+
+        <h4>Adicionar pacientes</h4>
+        <span>Nome: </span><input type="text" id="inputNome"><br>
+        <span>Idade: </span><input type="text" id="inputIdade"><br>
+        <span>Plano: </span><input type="text" id="inputPlano"><br>
+        <button @click="adicionarPaciente()">Adicionar</button>
+
+        <hr>
+
+        <h4>Último paciente cadastrado</h4>
+        <p v-if="pacientes.length > 0">
+            Paciente {{ pacientes[pacientes.length - 1].nome }},
+            idade {{ pacientes[pacientes.length - 1].idade }},
+            plano {{ pacientes[pacientes.length - 1].plano }}
+        </p>
+
+        <hr>
+
+        <h4>Pacientes do plano Ouro</h4>
+        <p v-for="p in pacientes">{{ p.plano == 'Ouro' ? p.nome : '' }}</p>
+
+        <hr>
+
+        <h4>Pacientes cadastrados</h4>
+        <p v-for="p in pacientes">{{p.nome}}</p>
+
+        <hr>
+        <hr>
+
+        Usando Computer:
+
+        <h4>Último paciente cadastrado</h4>
+        <p v-if="pacientes.length > 0">
+            {{ ultimoPaciente }}
+        </p>
+
+        <hr>
+
+        <h4>Pacientes do plano Ouro</h4>
+        <p v-for="p in pacientesPlanoOuro">{{ p.nome }}</p>
+
+        <hr>
+
+        <h4>Pacientes cadastrados</h4>
+        <p v-for="p in pacientes">{{p.nome}}</p>
+
+    </div>
+
+
+
+    <script>
+
+        // Aula 12 - Computed
+        options = {
+            el: "#app", // # -> id // . -> class
+            data: {
+                pacientes: []
+            },
+            methods: {
+                adicionarPaciente() {
+                    this.pacientes.push({
+                        nome: inputNome.value,
+                        idade: inputIdade.value,
+                        plano: inputPlano.value
+                    })
+                }
+            },
+            computed: {
+                ultimoPaciente() {
+                    let key = this.pacientes.length - 1
+                    let txt = ''
+
+                    txt += 'Paciente ' + this.pacientes[key].nome
+                    txt += ', idade ' + this.pacientes[key].idade
+                    txt += ', plano ' + this.pacientes[key].plano
+
+                    return txt.toUpperCase()
+                },
+                pacientesPlanoOuro() {
+                    return this.pacientes.filter(item => item.plano == 'Ouro')
+                }
+            }
+        }
+
+        const vn = new Vue(options)
+
+    </script>
+
+</body>
+</html>

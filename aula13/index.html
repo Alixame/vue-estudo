@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Aula 13</title>
+
+    <style>
+        .borda {
+            border: 1px solid black;
+        }
+
+        .div-pricipal {
+            width: 200px;
+            height: 200px;
+        }
+
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .branca {
+            color: black;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .azul {
+            color: white;
+            background-color: rgb(73, 73, 165);
+        }
+
+        .verde {
+            color: white;
+            background-color: rgb(73, 165, 96);
+        }
+        
+        .vermelha {
+            color: white;
+            background-color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        div
+        <div v-if="saudacao"> <!-- renderização condicional -->
+            <h1>Boas-vindas</h1>
+            <p>Conteúdo da tag <strong>template</strong></p>
+        </div>
+
+        <br><br><br>
+        template
+        <template v-if="saudacao"> <!-- renderização condicional -->
+            <h1>Boas-vindas</h1>
+            <p>Conteúdo da tag <strong>template</strong></p>
+        </template>
+
+        <hr>
+        div
+        <div v-for="n in 10">
+            <p>2 x {{n}} = {{ 2*n }}</p>
+        </div>
+
+        <br><br><br>
+        template
+        <template v-for="n in 10">
+            <p>2 x {{n}} = {{ 2*n }}</p>
+        </template>
+
+        
+    </div>
+
+
+
+    <script>
+
+        // Aula 12 - Tag Template
+        options = {
+            el: "#app", // # -> id // . -> class
+            data: {
+                saudacao: true
+            },
+            methods: {
+                
+            }
+        }
+
+        const vn = new Vue(options)
+
+    </script>
+
+</body>
+</html>

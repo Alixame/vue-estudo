@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Aula 15</title>
+
+    <style>
+        .borda {
+            border: 1px solid black;
+        }
+
+        .div-pricipal {
+            width: 200px;
+            height: 200px;
+        }
+
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .branca {
+            color: black;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .azul {
+            color: white;
+            background-color: rgb(73, 73, 165);
+        }
+
+        .verde {
+            color: white;
+            background-color: rgb(73, 165, 96);
+        }
+        
+        .vermelha {
+            color: white;
+            background-color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <div v-if="mostrar">
+            Forma Converncional: <br>
+            {{ paciente }} <br>
+            <input type="text" :value="paciente" @keyup="paciente = $event.target.value">
+        </div>
+
+        <hr>
+
+        <div v-if="!mostrar">
+            Utilizando V-Model: <br>
+            {{ paciente }} <br>
+            <input type="text" v-model="paciente">  
+        </div>
+    </div>
+
+
+
+    <script>
+
+        // Aula 15 - V-MODEL
+        options = {
+            el: "#app", // # -> id // . -> class
+            data: {
+               paciente: 'Lucas Alixame',
+               mostrar: false
+            },
+            methods: {
+                trocarVisao() {
+                    this.mostrar 
+                }
+            },
+            computed: {
+               
+            }
+        }
+
+        const vn = new Vue(options)
+
+    </script>
+
+</body>
+</html>
