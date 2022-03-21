@@ -60,6 +60,36 @@
             {{ paciente }} <br>
             <input type="text" v-model="paciente">  
         </div>
+
+        <hr>
+        
+        <!-- O MODEL FUNCIONA PARA TODO TIPO DE V-MODEL ELE IDENTIFICA O INPUT AUTOMATICAMEMTE-->
+        <input type="radio" value="Feminino" v-model="sexo">Feminino
+        <input type="radio" value="Masculino" v-model="sexo">Masculino
+        <br> {{ sexo }}
+
+        <hr>
+
+        <select v-model="pacote">
+            <option value="" disabled>Selecione um Plano</option>
+            <option value="Started">Started</option>
+            <option value="Pro">Pro</option>
+            <option value="Master">Master</option>
+        </select>
+        <br> {{ pacote }}
+
+        <hr>
+
+        <input type="checkbox" value="100" v-model="checkbox">100
+        <input type="checkbox" value="101" v-model="checkbox">101
+        <input type="checkbox" value="102" v-model="checkbox">102
+        <br> {{ checkbox }}
+
+        <hr>
+
+        <textarea v-model="textArea"></textarea>
+        <br> {{ textArea }}
+        
     </div>
 
 
@@ -71,7 +101,11 @@
             el: "#app", // # -> id // . -> class
             data: {
                paciente: 'Lucas Alixame',
-               mostrar: false
+               mostrar: false,
+               sexo: '',
+               pacote: '',
+               checkbox: [],
+               textArea: ''
             },
             methods: {
                 trocarVisao() {
